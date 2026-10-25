@@ -16,7 +16,10 @@ async function connect() {
   if (URL_) {
     const { default: postgres } = await import('postgres');
     // Neon's pooler runs PgBouncer in transaction mode → no prepared statements
-    const sql = postgres(URL_, { prepare: false, max: 4, idle_timeout: 20, connect_timeout: 10, ssl: 'require', types: { bigint: postgres.BigInt } });
+    // json/jsonb parameters: we always pass JSON text, so send strings through untouched
+    // (postgres.js would otherwise JSON-encode them a second time)
+    const asJson = (to) => ({ to, from: [to], serialize: (x) => (typeof x === 'string' ? x : JSON.stringify(x)), parse: (x) => JSON.parse(x) });
+    const sql = postgres(URL_, { prepare: false, max: Number(process.env.PGMAX || 4), idle_timeout: 20, connect_timeout: 10, ssl: process.env.PGSSL === 'off' ? false : 'require', types: { bigint: postgres.BigInt, json: asJson(114), jsonb: asJson(3802) } });
     const wrap = (s) => ({ q: async (text, params = []) => [...(await s.unsafe(text, params.map(norm)))].map(fix) });
     return { kind: 'postgres', ...wrap(sql), tx: (fn) => sql.begin((t) => fn(wrap(t))) };
   }
@@ -62,13 +65,18 @@ export async function bumpCatalog(t) {
     on conflict (key) do update set value = to_jsonb((meta.value #>> '{}')::int + 1)`);
 }
 
-export const SCHEMA_VERSION = 3;
+export const SCHEMA_VERSION = 4;
 export async function ensureSchema() {
   let current = 0;
   try { current = Number(await getMeta('schema_version', 0)); } catch { current = 0; }
   if (current >= SCHEMA_VERSION) return false;
   const sqlText = fs.readFileSync(path.join(ROOT, 'server', 'schema.sql'), 'utf8');
   const d = await db();
+  if (current > 0 && current < 4) {
+    // v3 → v4: early deployments stored JSON double-encoded; the data was test data only, so rebuild cleanly
+    await d.q('drop table if exists events, emails, wishlists, reviews, subscribers, orders, carts, auth_throttle, password_resets, sessions, customers, discounts, variants, products, meta cascade');
+    await d.q('drop sequence if exists product_id_seq, variant_id_seq, order_number_seq');
+  }
   for (const stmt of sqlText.split(/;\s*\n/).map((s) => s.trim()).filter(Boolean)) await d.q(stmt);
   return true; // caller seeds
 }
