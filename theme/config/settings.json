@@ -1,0 +1,55 @@
+{
+  "_comment": "Theme settings (like Shopify config/settings_data.json). The layout turns these into CSS custom properties, so colours, fonts and motion change without touching CSS.",
+  "brand": {
+    "name": "Nightjar & Co.",
+    "tagline": "Print-led pyjamas & sleepwear for slow nights",
+    "instagram": "https://instagram.com/"
+  },
+  "colors": {
+    "background": "#FBF9F6",
+    "text": "#221D29",
+    "text_meta": "rgba(34,29,41,.62)",
+    "accent": "#CDB8DD",
+    "accent_hover": "#4B3358",
+    "accent_text": "#221D29",
+    "border": "#A9A1AF",
+    "panel": "#F2EEF4",
+    "footer": "#2A2238",
+    "footer_text": "#EFE6D6",
+    "trust_bar": "#EEE6F3",
+    "overlay": "rgba(24,18,32,.62)",
+    "sale": "#B3261E",
+    "sold": "#221D29",
+    "stock_good": "#3F6B4A",
+    "stock_medium": "#C9831A",
+    "stock_bad": "#9C97A0",
+    "error": "#C2362F",
+    "success": "#3F7D4C"
+  },
+  "type": {
+    "heading_font": "'Newsreader', Georgia, serif",
+    "body_font": "'Figtree', system-ui, sans-serif",
+    "google_fonts": "https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,300;1,6..72,400&family=Figtree:ital,wght@0,400;0,500;0,600;1,400&display=swap"
+  },
+  "motion": {
+    "enabled": true,
+    "easing": "cubic-bezier(.33, 0, 0, 1)",
+    "duration_fast": ".3s",
+    "duration_normal": ".5s",
+    "duration_slow": "1.2s",
+    "delay_small": "33ms",
+    "delay_normal": "67ms",
+    "delay_long": "133ms",
+    "page_transitions": true
+  },
+  "cart": {
+    "free_shipping_threshold": 6000,
+    "show_gift_box": true,
+    "show_discount_field": true
+  },
+  "announcements": [
+    { "text": "Free UK delivery on orders over £60", "link": "/pages/shipping" },
+    { "text": "Demo shop: pay with Stripe test card 4242 4242 4242 4242", "link": "/pages/faq" },
+    { "text": "Join the night owls for 10% off your first order", "link": "/account/register" }
+  ]
+}

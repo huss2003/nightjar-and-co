@@ -1,0 +1,20 @@
+{
+  "name": "nightjar-and-co",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Nightjar & Co. — a full-stack print-led sleepwear store: server-rendered storefront, Postgres, Stripe Checkout, customer accounts and a store admin.",
+  "type": "module",
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "dev": "node --watch server/dev.js",
+    "start": "node server/dev.js",
+    "seed": "node scripts/seed.js",
+    "build": "node scripts/build.js"
+  },
+  "dependencies": {
+    "postgres": "^3.4.9"
+  },
+  "devDependencies": {
+    "@electric-sql/pglite": "^0.5.11"
+  }
+}

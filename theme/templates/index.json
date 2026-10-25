@@ -1,0 +1,159 @@
+{
+ "_comment": "Homepage template (like Shopify templates/index.json). Reorder, remove or duplicate sections; each `type` maps to a renderer in theme/sections.",
+ "sections": [
+  {
+   "id": "slideshow",
+   "type": "slideshow",
+   "settings": {
+    "autoplay": 6000,
+    "slides": [
+     {
+      "image": "photo:night-bed",
+      "eyebrow": "Autumn / Winter 26",
+      "heading": "Made for slow nights",
+      "button": "Shop new in",
+      "url": "/collections/new-in"
+     },
+     {
+      "image": "photo:stripes",
+      "eyebrow": "The stripe edit",
+      "heading": "Crisp cotton, drawn line by line",
+      "button": "Shop pyjama sets",
+      "url": "/collections/womens-pyjamas",
+      "pos": "50% 30%"
+     },
+     {
+      "image": "photo:morning-bed",
+      "eyebrow": "The Dusk Sale",
+      "heading": "Up to 20% off selected prints",
+      "button": "Shop the sale",
+      "url": "/collections/sale"
+     }
+    ]
+   }
+  },
+  {
+   "id": "featured",
+   "type": "featured-collection-slider",
+   "settings": {
+    "heading": "Fresh from the drawing table",
+    "tabs": [
+     {
+      "label": "New In",
+      "collection": "new-in"
+     },
+     {
+      "label": "Best Sellers",
+      "collection": "best-sellers"
+     },
+     {
+      "label": "Night Sky Prints",
+      "collection": "night-sky"
+     }
+    ]
+   }
+  },
+  {
+   "id": "collections",
+   "type": "collection-list-slider",
+   "settings": {
+    "heading": "Shop by fabric & fit",
+    "collections": [
+     "cotton",
+     "brushed-cotton",
+     "satin",
+     "linen-blend",
+     "nightdresses",
+     "robes",
+     "kids",
+     "accessories"
+    ]
+   }
+  },
+  {
+   "id": "hero-split",
+   "type": "image-hero-split",
+   "settings": {
+    "tiles": [
+     {
+      "image": "photo:pink-set",
+      "heading": "Pyjama sets",
+      "button": "Shop sets",
+      "url": "/collections/womens-pyjamas"
+     },
+     {
+      "image": "photo:blue-set",
+      "heading": "Gifts under £50",
+      "button": "Shop gifts",
+      "url": "/collections/gifts-under-50"
+     }
+    ]
+   }
+  },
+  {
+   "id": "story",
+   "type": "rich-text",
+   "settings": {
+    "eyebrow": "Our story",
+    "heading": "Every print starts as a painting at the kitchen table, long after everyone else has gone to bed",
+    "text": "Moths circling a lamp, a comet over a sleeping town, the pears in a neighbour’s garden. We paint them in gouache, repeat them by hand and print them on fabrics we’d want to sleep in ourselves.",
+    "button": "Read our story",
+    "url": "/pages/about"
+   }
+  },
+  {
+   "id": "shoppable",
+   "type": "shoppable",
+   "settings": {
+    "eyebrow": "Shop the print",
+    "heading": "Moth & Moon",
+    "text": "Our first print, and still the one people ask about. Tap a dot to see each piece.",
+    "print": "Moth & Moon"
+   }
+  },
+  {
+   "id": "grid",
+   "type": "grid",
+   "settings": {
+    "tiles": [
+     {
+      "image": "photo:tartan",
+      "heading": "For him",
+      "button": "Shop mens",
+      "url": "/collections/mens"
+     },
+     {
+      "image": "photo:kid",
+      "heading": "Little night owls",
+      "text": "10% of kids profits go to children’s reading charities",
+      "button": "Shop kids",
+      "url": "/collections/kids"
+     }
+    ]
+   }
+  },
+  {
+   "id": "duo",
+   "type": "image-with-text-split",
+   "settings": {
+    "image": "photo:palette",
+    "eyebrow": "In the studio",
+    "heading": "Two friends, one box of gouache",
+    "text": "Nightjar & Co. is a two-person studio. We draw every print, choose every fabric and pack every order ourselves, which is why our runs are small and our restocks are slow.",
+    "button": "Meet the studio",
+    "url": "/pages/about"
+   }
+  },
+  {
+   "id": "gift",
+   "type": "rich-text",
+   "settings": {
+    "eyebrow": "Gifting",
+    "heading": "Build a gift box: pick the pieces, we wrap them in tissue with your message",
+    "text": "Each piece has gift box points. We choose the smallest box that fits, so you never pay for empty space.",
+    "button": "Start a gift box",
+    "url": "/products/build-your-own-gift-box"
+   }
+  }
+ ]
+}

@@ -1,0 +1,14 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "buildCommand": "node scripts/build.js",
+  "outputDirectory": "public",
+  "functions": {
+    "api/index.js": { "includeFiles": "{server,theme}/**", "memory": 1024 }
+  },
+  "rewrites": [
+    { "source": "/((?!assets/).*)", "destination": "/api/index" }
+  ],
+  "headers": [
+    { "source": "/assets/(.*)", "headers": [{ "key": "cache-control", "value": "public, max-age=3600, stale-while-revalidate=86400" }] }
+  ]
+}

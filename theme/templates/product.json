@@ -1,0 +1,1 @@
+{ "sections": [ { "id": "main", "type": "main-product" }, { "id": "recommendations", "type": "product-recommendations" } ] }

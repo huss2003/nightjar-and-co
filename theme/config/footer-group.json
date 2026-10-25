@@ -1,0 +1,36 @@
+{
+ "sections": [
+  {
+   "id": "trust",
+   "type": "multi-column",
+   "settings": {
+    "columns": [
+     {
+      "icon": "truck",
+      "title": "Free UK delivery",
+      "text": "On orders over £60, with tracking"
+     },
+     {
+      "icon": "return",
+      "title": "30-day returns",
+      "text": "Unworn pieces, no fuss"
+     },
+     {
+      "icon": "quality",
+      "title": "Drawn by hand",
+      "text": "Every print painted in our studio"
+     },
+     {
+      "icon": "lock",
+      "title": "Secure checkout",
+      "text": "Payments handled by Stripe"
+     }
+    ]
+   }
+  },
+  {
+   "id": "footer",
+   "type": "footer"
+  }
+ ]
+}
